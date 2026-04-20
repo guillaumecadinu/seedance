@@ -4,37 +4,46 @@
 
 /* --- CSS Custom Properties --- */
 :root {
-    /* Colors */
-    --bg-primary: #07080a;
-    --bg-secondary: #0d0f14;
-    --bg-card: rgba(15, 18, 27, 0.7);
+    /* Colors — Casa Energia brand (warm, professional services) */
+    --bg-primary: #0a0908;
+    --bg-secondary: #14110d;
+    --bg-card: rgba(22, 18, 13, 0.72);
     --bg-glass: rgba(255, 255, 255, 0.03);
-    
-    --text-primary: #f0f2f5;
-    --text-secondary: #8b92a5;
-    --text-muted: #555d73;
-    
-    --accent-blue: #3b82f6;
-    --accent-blue-light: #60a5fa;
-    --accent-blue-glow: rgba(59, 130, 246, 0.15);
-    
-    --accent-amber: #f59e0b;
+
+    --text-primary: #f5f1ea;
+    --text-secondary: #9a9186;
+    --text-muted: #6b6359;
+
+    /* Primary = orange (sun in logo) — main CTA / brand */
+    --accent-primary: #f59e0b;
+    --accent-primary-light: #fbbf24;
+    --accent-primary-glow: rgba(245, 158, 11, 0.18);
+
+    /* Service-specific */
+    --accent-slate: #7c8591;        /* Caméra IA — neutral steel */
+    --accent-slate-light: #a1aab5;
+    --accent-slate-glow: rgba(124, 133, 145, 0.18);
+
+    --accent-amber: #f59e0b;         /* Solaire */
     --accent-amber-light: #fbbf24;
-    --accent-amber-glow: rgba(245, 158, 11, 0.15);
-    
-    --accent-green: #10b981;
+    --accent-amber-glow: rgba(245, 158, 11, 0.18);
+
+    --accent-green: #10b981;         /* Automatismes */
     --accent-green-light: #34d399;
-    --accent-green-glow: rgba(16, 185, 129, 0.15);
-    
-    --accent-purple: #8b5cf6;
-    
-    --gradient-main: linear-gradient(135deg, #3b82f6, #8b5cf6, #f59e0b);
-    --gradient-blue: linear-gradient(135deg, #3b82f6, #60a5fa);
+    --accent-green-glow: rgba(16, 185, 129, 0.18);
+
+    /* Legacy aliases so we don't have to touch every rule */
+    --accent-blue: var(--accent-slate);
+    --accent-blue-light: var(--accent-slate-light);
+    --accent-blue-glow: var(--accent-slate-glow);
+
+    --gradient-main: linear-gradient(135deg, #f59e0b 0%, #fbbf24 50%, #10b981 100%);
+    --gradient-blue: linear-gradient(135deg, #7c8591, #a1aab5);
     --gradient-amber: linear-gradient(135deg, #f59e0b, #fbbf24);
     --gradient-green: linear-gradient(135deg, #10b981, #34d399);
-    
-    --border-subtle: rgba(255, 255, 255, 0.06);
-    --border-hover: rgba(255, 255, 255, 0.12);
+
+    --border-subtle: rgba(255, 240, 220, 0.07);
+    --border-hover: rgba(255, 240, 220, 0.14);
     
     /* Typography */
     --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -135,7 +144,7 @@ img, video {
     width: 48px;
     height: 48px;
     border: 2px solid var(--border-subtle);
-    border-top-color: var(--accent-blue);
+    border-top-color: var(--accent-primary);
     border-radius: 50%;
     animation: spin 0.8s linear infinite;
 }
@@ -311,11 +320,11 @@ main, #navbar, #footer, .mobile-menu {
 }
 
 .logo-icon {
-    font-size: 22px;
-    background: var(--gradient-main);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+    line-height: 0;
 }
 
 .logo-text {
@@ -354,7 +363,7 @@ main, #navbar, #footer, .mobile-menu {
     transform: translateX(-50%);
     width: 4px;
     height: 4px;
-    background: var(--accent-blue);
+    background: var(--accent-primary);
     border-radius: 50%;
 }
 
@@ -574,15 +583,15 @@ main, #navbar, #footer, .mobile-menu {
 }
 
 .btn-primary {
-    background: var(--accent-blue);
-    color: white;
-    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+    background: var(--accent-primary);
+    color: #1a1309;
+    box-shadow: 0 4px 20px rgba(245, 158, 11, 0.35);
 }
 
 .btn-primary:hover {
-    background: var(--accent-blue-light);
+    background: var(--accent-primary-light);
     transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(59, 130, 246, 0.4);
+    box-shadow: 0 8px 30px rgba(245, 158, 11, 0.5);
 }
 
 .btn-primary::before {
@@ -642,7 +651,7 @@ main, #navbar, #footer, .mobile-menu {
     font-family: var(--font-display);
     font-size: clamp(18px, 2vw, 24px);
     font-weight: 600;
-    color: var(--accent-blue);
+    color: var(--accent-primary);
 }
 
 .stat-label {
@@ -674,7 +683,7 @@ main, #navbar, #footer, .mobile-menu {
 .scroll-line {
     width: 1px;
     height: 40px;
-    background: linear-gradient(to bottom, var(--accent-blue), transparent);
+    background: linear-gradient(to bottom, var(--accent-primary), transparent);
     animation: scroll-anim 2s ease-in-out infinite;
 }
 
@@ -704,7 +713,7 @@ main, #navbar, #footer, .mobile-menu {
     font-weight: 600;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: var(--accent-blue);
+    color: var(--accent-primary);
     margin-bottom: 16px;
 }
 
@@ -868,8 +877,8 @@ main, #navbar, #footer, .mobile-menu {
 }
 
 .service-card:hover .card-arrow {
-    background: var(--accent-blue);
-    border-color: var(--accent-blue);
+    background: var(--accent-slate);
+    border-color: var(--accent-slate);
     color: white;
     transform: rotate(-45deg);
 }
@@ -877,11 +886,13 @@ main, #navbar, #footer, .mobile-menu {
 #service-card-solaire:hover .card-arrow {
     background: var(--accent-amber);
     border-color: var(--accent-amber);
+    color: #1a1309;
 }
 
 #service-card-auto:hover .card-arrow {
     background: var(--accent-green);
     border-color: var(--accent-green);
+    color: white;
 }
 
 /* --- Detail Sections --- */
@@ -1077,7 +1088,7 @@ main, #navbar, #footer, .mobile-menu {
     background: var(--bg-glass);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-sm);
-    color: var(--accent-blue);
+    color: var(--accent-primary);
 }
 
 /* --- Contact Form --- */
@@ -1127,8 +1138,8 @@ main, #navbar, #footer, .mobile-menu {
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-    border-color: var(--accent-blue);
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15);
 }
 
 .form-group select {
