@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solutions Intelligentes — Caméra IA · Solaire · Automatismes</title>
+    <meta name="description" content="Découvrez nos solutions innovantes : Caméra IA pour une sécurité intelligente, Énergie Solaire durable, et Automatismes de pointe pour votre habitat et entreprise.">
+    <meta name="keywords" content="Caméra IA, Solaire, Automatismes, domotique, sécurité intelligente, énergie renouvelable">
+    <meta property="og:title" content="Solutions Intelligentes — Caméra IA · Solaire · Automatismes">
+    <meta property="og:description" content="Des solutions technologiques innovantes pour votre sécurité, votre énergie et votre confort.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-ring"></div>
+            <span class="preloader-text">Chargement</span>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div id="cursor" class="cursor"></div>
+    <div id="cursor-follower" class="cursor-follower"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <span class="logo-icon">◆</span>
+                <span class="logo-text">SEEDANCE</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#hero" class="nav-link active" data-section="hero">Accueil</a></li>
+                <li><a href="#services" class="nav-link" data-section="services">Services</a></li>
+                <li><a href="#camera-ia" class="nav-link" data-section="camera-ia">Caméra IA</a></li>
+                <li><a href="#solaire" class="nav-link" data-section="solaire">Solaire</a></li>
+                <li><a href="#automatismes" class="nav-link" data-section="automatismes">Automatismes</a></li>
+                <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+            </ul>
+            <button id="menu-toggle" class="menu-toggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu">
+        <ul class="mobile-links">
+            <li><a href="#hero" class="mobile-link">Accueil</a></li>
+            <li><a href="#services" class="mobile-link">Services</a></li>
+            <li><a href="#camera-ia" class="mobile-link">Caméra IA</a></li>
+            <li><a href="#solaire" class="mobile-link">Solaire</a></li>
+            <li><a href="#automatismes" class="mobile-link">Automatismes</a></li>
+            <li><a href="#contact" class="mobile-link">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section — Scroll-Driven Video (Apple-style) -->
+        <section id="hero" class="hero-scroll-section">
+            <div class="hero-sticky">
+                <!-- Video -->
+                <video id="hero-video" muted playsinline preload="auto">
+                    <source src="hf_20260419_202137_b04a8363-d01e-45b0-a27b-0508ba42b993.mp4" type="video/mp4">
+                </video>
+                <div class="video-overlay"></div>
+
+                <!-- Text overlays — appear/disappear based on scroll progress -->
+                <div class="hero-overlay-content">
+                    <div class="hero-text-group hero-text-intro" id="hero-text-intro">
+                        <div class="hero-badge">
+                            <span class="badge-dot"></span>
+                            Solutions Technologiques Avancées
+                        </div>
+                        <h1 class="hero-title">
+                            <span class="title-line">L'Innovation</span>
+                            <span class="title-line gradient-text">Au Service</span>
+                            <span class="title-line">De Votre Avenir</span>
+                        </h1>
+                        <p class="hero-subtitle">
+                            Caméra IA · Énergie Solaire · Automatismes — Des solutions intelligentes
+                            pour un monde connecté, sécurisé et durable.
+                        </p>
+                        <div class="scroll-indicator">
+                            <div class="scroll-line"></div>
+                            <span>Scroll pour explorer</span>
+                        </div>
+                    </div>
+
+                    <div class="hero-text-group hero-text-services" id="hero-text-services">
+                        <div class="hero-service-pills">
+                            <div class="hero-pill" id="pill-camera">
+                                <div class="pill-icon blue">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                                </div>
+                                <span>CAMÉRA IA</span>
+                            </div>
+                            <div class="hero-pill" id="pill-solaire">
+                                <div class="pill-icon amber">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                                </div>
+                                <span>SOLAIRE</span>
+                            </div>
+                            <div class="hero-pill" id="pill-auto">
+                                <div class="pill-icon green">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                                </div>
+                                <span>AUTOMATISMES</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hero-text-group hero-text-cta" id="hero-text-cta">
+                        <h2 class="hero-cta-title">Prêt à commencer ?</h2>
+                        <div class="hero-ctas">
+                            <a href="#services" class="btn btn-primary">
+                                <span>Découvrir nos services</span>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </a>
+                            <a href="#contact" class="btn btn-ghost">
+                                <span>Nous contacter</span>
+                            </a>
+                        </div>
+                        <div class="hero-stats">
+                            <div class="stat">
+                                <span class="stat-number" data-count="500">0</span><span class="stat-suffix">+</span>
+                                <span class="stat-label">Installations</span>
+                            </div>
+                            <div class="stat-divider"></div>
+                            <div class="stat">
+                                <span class="stat-number" data-count="98">0</span><span class="stat-suffix">%</span>
+                                <span class="stat-label">Satisfaction</span>
+                            </div>
+                            <div class="stat-divider"></div>
+                            <div class="stat">
+                                <span class="stat-number" data-count="15">0</span><span class="stat-suffix">ans</span>
+                                <span class="stat-label">D'expérience</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scroll progress bar -->
+                <div class="hero-progress">
+                    <div class="hero-progress-bar" id="hero-progress-bar"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Overview -->
+        <section id="services" class="section services-section">
+            <div class="container">
+                <div class="section-header" data-animate="fade-up">
+                    <span class="section-tag">Nos Expertises</span>
+                    <h2 class="section-title">Trois Piliers<br><span class="gradient-text">D'Excellence</span></h2>
+                    <p class="section-desc">Des solutions sur-mesure alliant technologie de pointe et expertise terrain pour transformer votre quotidien.</p>
+                </div>
+                <div class="services-grid">
+                    <!-- Camera IA Card -->
+                    <a href="#camera-ia" class="service-card" data-animate="fade-up" data-delay="100" id="service-card-camera">
+                        <div class="card-glow card-glow-blue"></div>
+                        <div class="card-number">01</div>
+                        <div class="card-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/>
+                                <circle cx="12" cy="13" r="4"/>
+                                <path d="M20 4h-2M19 3v2" stroke-width="1.5"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Caméra IA</h3>
+                        <p class="card-desc">Surveillance intelligente avec reconnaissance faciale, détection d'intrusion et analyse comportementale en temps réel.</p>
+                        <div class="card-features">
+                            <span class="feature-tag">Reconnaissance</span>
+                            <span class="feature-tag">Temps réel</span>
+                            <span class="feature-tag">Cloud</span>
+                        </div>
+                        <div class="card-arrow">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                        </div>
+                    </a>
+
+                    <!-- Solaire Card -->
+                    <a href="#solaire" class="service-card" data-animate="fade-up" data-delay="200" id="service-card-solaire">
+                        <div class="card-glow card-glow-amber"></div>
+                        <div class="card-number">02</div>
+                        <div class="card-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="12" cy="12" r="5"/>
+                                <line x1="12" y1="1" x2="12" y2="3"/>
+                                <line x1="12" y1="21" x2="12" y2="23"/>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                                <line x1="1" y1="12" x2="3" y2="12"/>
+                                <line x1="21" y1="12" x2="23" y2="12"/>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Solaire</h3>
+                        <p class="card-desc">Solutions photovoltaïques performantes pour une autonomie énergétique complète et un impact environnemental réduit.</p>
+                        <div class="card-features">
+                            <span class="feature-tag">Photovoltaïque</span>
+                            <span class="feature-tag">Autonomie</span>
+                            <span class="feature-tag">Économie</span>
+                        </div>
+                        <div class="card-arrow">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                        </div>
+                    </a>
+
+                    <!-- Automatismes Card -->
+                    <a href="#automatismes" class="service-card" data-animate="fade-up" data-delay="300" id="service-card-auto">
+                        <div class="card-glow card-glow-green"></div>
+                        <div class="card-number">03</div>
+                        <div class="card-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                <line x1="8" y1="21" x2="16" y2="21"/>
+                                <line x1="12" y1="17" x2="12" y2="21"/>
+                                <path d="M7 8h2M11 8h2M15 8h2M7 12h10"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Automatismes</h3>
+                        <p class="card-desc">Portails, volets, éclairages — automatisez votre environnement pour un confort optimal et une gestion centralisée.</p>
+                        <div class="card-features">
+                            <span class="feature-tag">Domotique</span>
+                            <span class="feature-tag">Confort</span>
+                            <span class="feature-tag">Contrôle</span>
+                        </div>
+                        <div class="card-arrow">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Camera IA Section -->
+        <section id="camera-ia" class="section detail-section">
+            <div class="container">
+                <div class="detail-grid">
+                    <div class="detail-content" data-animate="fade-right">
+                        <span class="section-tag">01 — Caméra IA</span>
+                        <h2 class="section-title">Sécurité<br><span class="gradient-text-blue">Intelligente</span></h2>
+                        <p class="detail-text">
+                            Nos caméras à intelligence artificielle révolutionnent la vidéosurveillance. 
+                            Grâce à des algorithmes avancés de deep learning, elles distinguent les vraies menaces 
+                            des fausses alertes et vous notifient en temps réel.
+                        </p>
+                        <ul class="detail-features">
+                            <li class="detail-feature" data-animate="fade-up" data-delay="100">
+                                <div class="feature-icon blue">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                </div>
+                                <div>
+                                    <strong>Reconnaissance faciale</strong>
+                                    <span>Identifiez les personnes autorisées automatiquement</span>
+                                </div>
+                            </li>
+                            <li class="detail-feature" data-animate="fade-up" data-delay="200">
+                                <div class="feature-icon blue">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                </div>
+                                <div>
+                                    <strong>Détection d'anomalies</strong>
+                                    <span>Alertes intelligentes filtrant les faux positifs</span>
+                                </div>
+                            </li>
+                            <li class="detail-feature" data-animate="fade-up" data-delay="300">
+                                <div class="feature-icon blue">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                </div>
+                                <div>
+                                    <strong>Vision nocturne HD</strong>
+                                    <span>Surveillance 24/7 sans compromis sur la qualité</span>
+                                </div>
+                            </li>
+                            <li class="detail-feature" data-animate="fade-up" data-delay="400">
+                                <div class="feature-icon blue">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                </div>
+                                <div>
+                                    <strong>Accès Cloud sécurisé</strong>
+                                    <span>Consultez vos caméras depuis n'importe où</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="detail-visual" data-animate="fade-left">
+                        <div class="visual-card blue-card">
+                            <div class="visual-orb blue-orb"></div>
+                            <div class="visual-stats">
+                                <div class="visual-stat">
+                                    <span class="vs-number">4K</span>
+                                    <span class="vs-label">Résolution</span>
+                                </div>
+                                <div class="visual-stat">
+                                    <span class="vs-number">24/7</span>
+                                    <span class="vs-label">Surveillance</span>
+                                </div>
+                                <div class="visual-stat">
+                                    <span class="vs-number">&lt;1s</span>
+                                    <span class="vs-label">Détection</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solaire Section -->
+        <section id="solaire" class="section detail-section">
+            <div class="container">
+                <div class="detail-grid reverse">
+                    <div class="detail-content" data-animate="fade-left">
+                        <span class="section-tag">02 — Solaire</span>
+                        <h2 class="section-title">Énergie<br><span class="gradient-text-amber">Durable</span></h2>
+                        <p class="detail-text">
+                            Passez à l'énergie solaire et réduisez votre empreinte carbone tout en réalisant 
+                            des économies significatives. Nos installations photovoltaïques s'adaptent à tous 
+                            les types de toitures et de besoins.
+                        </p>
+                        <ul class="detail-features">
+                            <li class="detail-feature" data-animate="fade-up" data-delay="100">
+                                <div class="feature-icon amber">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                </div>
+                                <div>
+                                    <strong>Panneaux haute efficacité</strong>
+                                    <span>Rendements supérieurs à 22% avec technologie PERC</span>
+                                </div>
+                            </li>
+                            <li class="detail-feature" data-animate="fade-up" data-delay="200">
+                                <div class="feature-icon amber">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                </div>
+                                <div>
+                                    <strong>Stockage intelligent</strong>
+                                    <span>Batteries lithium pour une autonomie jour et nuit</span>
+                                </div>
+                            </li>
+                            <li class="detail-feature" data-animate="fade-up" data-delay="300">
+                                <div class="feature-icon amber">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                </div>
+                                <div>
+                                    <strong>Monitoring en temps réel</strong>
+                                    <span>Suivez votre production et consommation via l'app</span>
+                                </div>
+                            </li>
+                            <li class="detail-feature" data-animate="fade-up" data-delay="400">
+                                <div class="feature-icon amber">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                </div>
+                                <div>
+                                    <strong>ROI garanti</strong>
+                                    <span>Retour sur investissement en 5-7 ans, garantie 25 ans</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="detail-visual" data-animate="fade-right">
+                        <div class="visual-card amber-card">
+                            <div class="visual-orb amber-orb"></div>
+                            <div class="visual-stats">
+                                <div class="visual-stat">
+                                    <span class="vs-number">-70%</span>
+                                    <span class="vs-label">Facture</span>
+                                </div>
+                                <div class="visual-stat">
+                                    <span class="vs-number">25</span>
+                                    <span class="vs-label">Ans garantie</span>
+                                </div>
+                                <div class="visual-stat">
+                                    <span class="vs-number">22%</span>
+                                    <span class="vs-label">Rendement</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Automatismes Section -->
+        <section id="automatismes" class="section detail-section">
+            <div class="container">
+                <div class="detail-grid">
+                    <div class="detail-content" data-animate="fade-right">
+                        <span class="section-tag">03 — Automatismes</span>
+                        <h2 class="section-title">Confort<br><span class="gradient-text-green">Automatisé</span></h2>
+                        <p class="detail-text">
+                            Simplifiez votre quotidien grâce à l'automatisation de vos équipements. 
+                            Portails, volets roulants, stores, éclairages — tout se pilote du bout des doigts 
+                            ou par commande vocale.
+                        </p>
+                        <ul class="detail-features">
+                            <li class="detail-feature" data-animate="fade-up" data-delay="100">
+                                <div class="feature-icon green">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                </div>
+                                <div>
+                                    <strong>Portails motorisés</strong>
+                                    <span>Ouverture coulissante ou battante, télécommandée</span>
+                                </div>
+                            </li>
+                            <li class="detail-feature" data-animate="fade-up" data-delay="200">
+                                <div class="feature-icon green">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                </div>
+                                <div>
+                                    <strong>Volets & stores connectés</strong>
+                                    <span>Programmation horaire et détection climatique</span>
+                                </div>
+                            </li>
+                            <li class="detail-feature" data-animate="fade-up" data-delay="300">
+                                <div class="feature-icon green">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                </div>
+                                <div>
+                                    <strong>Éclairage intelligent</strong>
+                                    <span>Scénarios lumineux adaptés à chaque moment</span>
+                                </div>
+                            </li>
+                            <li class="detail-feature" data-animate="fade-up" data-delay="400">
+                                <div class="feature-icon green">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                </div>
+                                <div>
+                                    <strong>Contrôle centralisé</strong>
+                                    <span>Application unique ou commande vocale Alexa/Google</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="detail-visual" data-animate="fade-left">
+                        <div class="visual-card green-card">
+                            <div class="visual-orb green-orb"></div>
+                            <div class="visual-stats">
+                                <div class="visual-stat">
+                                    <span class="vs-number">100%</span>
+                                    <span class="vs-label">Connecté</span>
+                                </div>
+                                <div class="visual-stat">
+                                    <span class="vs-number">App</span>
+                                    <span class="vs-label">Mobile</span>
+                                </div>
+                                <div class="visual-stat">
+                                    <span class="vs-number">∞</span>
+                                    <span class="vs-label">Scénarios</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact / CTA Section -->
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info" data-animate="fade-right">
+                        <span class="section-tag">Contact</span>
+                        <h2 class="section-title">Démarrons Votre<br><span class="gradient-text">Projet Ensemble</span></h2>
+                        <p class="detail-text">
+                            Prêt à transformer votre espace avec nos solutions intelligentes ? 
+                            Contactez-nous pour un devis gratuit et personnalisé.
+                        </p>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                                </div>
+                                <span>+33 1 23 45 67 89</span>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                                </div>
+                                <span>contact@seedance.fr</span>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                </div>
+                                <span>Paris, France</span>
+                            </div>
+                        </div>
+                    </div>
+                    <form id="contact-form" class="contact-form" data-animate="fade-left">
+                        <div class="form-group">
+                            <label for="name">Nom complet</label>
+                            <input type="text" id="name" name="name" placeholder="Jean Dupont" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="jean@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service souhaité</label>
+                            <select id="service" name="service" required>
+                                <option value="" disabled selected>Choisir un service</option>
+                                <option value="camera-ia">Caméra IA</option>
+                                <option value="solaire">Solaire</option>
+                                <option value="automatismes">Automatismes</option>
+                                <option value="multi">Plusieurs services</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Décrivez votre projet..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full" id="submit-btn">
+                            <span>Envoyer la demande</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#hero" class="nav-logo">
+                        <span class="logo-icon">◆</span>
+                        <span class="logo-text">SEEDANCE</span>
+                    </a>
+                    <p>Solutions technologiques innovantes pour un avenir connecté, sécurisé et durable.</p>
+                </div>
+                <div class="footer-links-group">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#camera-ia">Caméra IA</a></li>
+                        <li><a href="#solaire">Solaire</a></li>
+                        <li><a href="#automatismes">Automatismes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-group">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#hero">Accueil</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SEEDANCE. Tous droits réservés.</p>
+                <div class="footer-socials">
+                    <a href="#" aria-label="LinkedIn" class="social-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Instagram" class="social-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Facebook" class="social-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
