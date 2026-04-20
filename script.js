@@ -6,121 +6,31 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // ======================================================
-    // SCROLL-DRIVEN VIDEO HERO (Apple AirPods Pro style)
+    // BACKGROUND VIDEO — infinite loop autoplay across entire site
     // ======================================================
-    const heroSection = document.querySelector('.hero-scroll-section');
-    const heroVideo = document.getElementById('hero-video');
-    const heroProgressBar = document.getElementById('hero-progress-bar');
-    const heroTextIntro = document.getElementById('hero-text-intro');
-    const heroTextServices = document.getElementById('hero-text-services');
-    const heroTextCTA = document.getElementById('hero-text-cta');
-
-    // Capability detection
-    const isSmallScreen = window.matchMedia('(max-width: 767px)').matches;
-    const isTouchMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    const bgVideo = document.getElementById('hero-video');
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const useFallback = isSmallScreen || isTouchMobile || prefersReducedMotion;
+    const useFallback = prefersReducedMotion;
 
-    if (heroSection && heroVideo) {
+    if (bgVideo) {
+        bgVideo.muted = true;
+        bgVideo.loop = true;
+        bgVideo.setAttribute('playsinline', '');
+
         if (useFallback) {
-            // --- Fallback: classic autoplay loop ---
-            heroSection.classList.add('hero-fallback');
-            heroVideo.setAttribute('autoplay', '');
-            heroVideo.setAttribute('loop', '');
-            heroVideo.setAttribute('muted', '');
-            heroVideo.muted = true;
-            heroVideo.loop = true;
-            // Attempt autoplay — iOS/Android require muted + playsinline (already set)
-            const tryPlay = () => heroVideo.play().catch(() => {});
-            tryPlay();
-            // Some browsers need a user interaction nudge
-            document.addEventListener('touchstart', tryPlay, { once: true, passive: true });
-            document.addEventListener('click', tryPlay, { once: true });
+            // Honor reduced-motion — pause on first frame
+            bgVideo.pause();
         } else {
-            // --- Scroll-driven playback ---
-            heroVideo.removeAttribute('autoplay');
-            heroVideo.removeAttribute('loop');
-            heroVideo.pause();
-            heroVideo.muted = true;
-
-            let targetTime = 0;
-            let displayedTime = 0;
-            let rafId = null;
-            let videoReady = false;
-
-            const computeProgress = () => {
-                const rect = heroSection.getBoundingClientRect();
-                const scrollable = heroSection.offsetHeight - window.innerHeight;
-                if (scrollable <= 0) return 0;
-                const scrolled = -rect.top;
-                return Math.max(0, Math.min(1, scrolled / scrollable));
+            const tryPlay = () => bgVideo.play().catch(() => {});
+            tryPlay();
+            // Some browsers require user interaction first
+            const nudge = () => {
+                tryPlay();
+                document.removeEventListener('touchstart', nudge);
+                document.removeEventListener('click', nudge);
             };
-
-            const updateTextPhases = (progress) => {
-                // 3 phases: intro (0-0.33), services (0.33-0.66), CTA (0.66-1)
-                const introActive = progress < 0.34;
-                const servicesActive = progress >= 0.3 && progress < 0.72;
-                const ctaActive = progress >= 0.68;
-
-                heroTextIntro.classList.toggle('active', introActive);
-                heroTextServices.classList.toggle('active', servicesActive);
-                heroTextCTA.classList.toggle('active', ctaActive);
-            };
-
-            const updateProgressBar = (progress) => {
-                heroProgressBar.style.height = `${progress * 100}%`;
-            };
-
-            const tick = () => {
-                rafId = null;
-                // Smooth interpolation toward target (eases scroll jitter)
-                const diff = targetTime - displayedTime;
-                if (Math.abs(diff) > 0.005) {
-                    displayedTime += diff * 0.22;
-                    if (videoReady && !isNaN(displayedTime)) {
-                        try { heroVideo.currentTime = displayedTime; } catch (e) {}
-                    }
-                    rafId = requestAnimationFrame(tick);
-                } else {
-                    displayedTime = targetTime;
-                    if (videoReady && !isNaN(displayedTime)) {
-                        try { heroVideo.currentTime = displayedTime; } catch (e) {}
-                    }
-                }
-            };
-
-            const onScroll = () => {
-                const progress = computeProgress();
-
-                // Update overlays immediately (not tied to interpolation)
-                updateProgressBar(progress);
-                updateTextPhases(progress);
-
-                const duration = (heroVideo.duration && isFinite(heroVideo.duration)) ? heroVideo.duration : 14;
-                targetTime = progress * duration;
-
-                if (!rafId) {
-                    rafId = requestAnimationFrame(tick);
-                }
-            };
-
-            const initVideo = () => {
-                videoReady = true;
-                onScroll();
-            };
-
-            if (heroVideo.readyState >= 2) {
-                initVideo();
-            } else {
-                heroVideo.addEventListener('loadedmetadata', initVideo, { once: true });
-                heroVideo.addEventListener('loadeddata', initVideo, { once: true });
-            }
-
-            window.addEventListener('scroll', onScroll, { passive: true });
-            window.addEventListener('resize', onScroll, { passive: true });
-
-            // Force a first paint after short delay in case scroll hasn't fired
-            setTimeout(() => onScroll(), 100);
+            document.addEventListener('touchstart', nudge, { once: true, passive: true });
+            document.addEventListener('click', nudge, { once: true });
         }
     }
 
@@ -289,28 +199,18 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         };
 
-        // Trigger counters when user reaches the CTA phase in the hero
-        // (fallback: on intersection with hero-stats which is always in DOM)
         const statsContainer = counters[0].closest('.hero-stats');
         if (statsContainer) {
-            // Trigger once hero scroll progress indicates CTA phase, or immediately in fallback
-            if (useFallback) {
-                setTimeout(() => {
-                    if (!animated) { animated = true; animateCounters(); }
-                }, 800);
-            } else {
-                const checkAndRun = () => {
-                    const rect = heroSection.getBoundingClientRect();
-                    const scrollable = heroSection.offsetHeight - window.innerHeight;
-                    const progress = scrollable > 0 ? Math.max(0, Math.min(1, -rect.top / scrollable)) : 0;
-                    if (progress >= 0.65 && !animated) {
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !animated) {
                         animated = true;
                         animateCounters();
-                        window.removeEventListener('scroll', checkAndRun);
+                        statsObserver.unobserve(entry.target);
                     }
-                };
-                window.addEventListener('scroll', checkAndRun, { passive: true });
-            }
+                });
+            }, { threshold: 0.5 });
+            statsObserver.observe(statsContainer);
         }
     }
 

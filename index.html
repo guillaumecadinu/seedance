@@ -62,20 +62,21 @@
         </ul>
     </div>
 
+    <!-- Fixed background video — infinite loop autoplay across entire site -->
+    <div id="bg-video-wrap" class="bg-video-wrap">
+        <video id="hero-video" muted playsinline autoplay loop preload="auto">
+            <source src="hf_20260419_202137_b04a8363-d01e-45b0-a27b-0508ba42b993.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+
     <!-- Main Content -->
     <main>
-        <!-- Hero Section — Scroll-Driven Video (Apple-style) -->
+        <!-- Hero Section -->
         <section id="hero" class="hero-scroll-section">
             <div class="hero-sticky">
-                <!-- Video -->
-                <video id="hero-video" muted playsinline preload="auto">
-                    <source src="hf_20260419_202137_b04a8363-d01e-45b0-a27b-0508ba42b993.mp4" type="video/mp4">
-                </video>
-                <div class="video-overlay"></div>
-
-                <!-- Text overlays — appear/disappear based on scroll progress -->
                 <div class="hero-overlay-content">
-                    <div class="hero-text-group hero-text-intro" id="hero-text-intro">
+                    <div class="hero-text-group hero-text-intro active" id="hero-text-intro">
                         <div class="hero-badge">
                             <span class="badge-dot"></span>
                             Solutions Technologiques Avancées
@@ -89,37 +90,6 @@
                             Caméra IA · Énergie Solaire · Automatismes — Des solutions intelligentes
                             pour un monde connecté, sécurisé et durable.
                         </p>
-                        <div class="scroll-indicator">
-                            <div class="scroll-line"></div>
-                            <span>Scroll pour explorer</span>
-                        </div>
-                    </div>
-
-                    <div class="hero-text-group hero-text-services" id="hero-text-services">
-                        <div class="hero-service-pills">
-                            <div class="hero-pill" id="pill-camera">
-                                <div class="pill-icon blue">
-                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
-                                </div>
-                                <span>CAMÉRA IA</span>
-                            </div>
-                            <div class="hero-pill" id="pill-solaire">
-                                <div class="pill-icon amber">
-                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-                                </div>
-                                <span>SOLAIRE</span>
-                            </div>
-                            <div class="hero-pill" id="pill-auto">
-                                <div class="pill-icon green">
-                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                                </div>
-                                <span>AUTOMATISMES</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="hero-text-group hero-text-cta" id="hero-text-cta">
-                        <h2 class="hero-cta-title">Prêt à commencer ?</h2>
                         <div class="hero-ctas">
                             <a href="#services" class="btn btn-primary">
                                 <span>Découvrir nos services</span>
@@ -145,12 +115,11 @@
                                 <span class="stat-label">D'expérience</span>
                             </div>
                         </div>
+                        <div class="scroll-indicator">
+                            <div class="scroll-line"></div>
+                            <span>Scroll pour explorer</span>
+                        </div>
                     </div>
-                </div>
-
-                <!-- Scroll progress bar -->
-                <div class="hero-progress">
-                    <div class="hero-progress-bar" id="hero-progress-bar"></div>
                 </div>
             </div>
         </section>
