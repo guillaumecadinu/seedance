@@ -7,7 +7,7 @@
     /* Colors — Casa Energia brand (warm, professional services) */
     --bg-primary: #0a0908;
     --bg-secondary: #14110d;
-    --bg-card: rgba(22, 18, 13, 0.72);
+    --bg-card: rgba(18, 14, 10, 0.82);
     --bg-glass: rgba(255, 255, 255, 0.03);
 
     --text-primary: #f5f1ea;
@@ -192,8 +192,8 @@ img, video {
     position: absolute;
     inset: 0;
     background:
-        radial-gradient(ellipse 80% 60% at 50% 50%, rgba(7,8,10,0.75) 0%, rgba(7,8,10,0.55) 60%, rgba(7,8,10,0.8) 100%),
-        linear-gradient(180deg, rgba(7,8,10,0.6) 0%, rgba(7,8,10,0.5) 50%, rgba(7,8,10,0.85) 100%);
+        radial-gradient(ellipse 70% 55% at 50% 50%, rgba(7,8,10,0.45) 0%, rgba(7,8,10,0.25) 60%, rgba(7,8,10,0.5) 100%),
+        linear-gradient(180deg, rgba(7,8,10,0.35) 0%, rgba(7,8,10,0.2) 40%, rgba(7,8,10,0.55) 100%);
     pointer-events: none;
 }
 
@@ -745,9 +745,9 @@ main, #navbar, #footer, .mobile-menu {
 
 /* --- Services Section --- */
 .services-section {
-    background: linear-gradient(180deg, rgba(7,8,10,0.5) 0%, rgba(7,8,10,0.85) 60%, rgba(7,8,10,0.92) 100%);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: linear-gradient(180deg, rgba(7,8,10,0.25) 0%, rgba(7,8,10,0.5) 60%, rgba(7,8,10,0.6) 100%);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
 }
 
 .services-grid {
@@ -760,6 +760,8 @@ main, #navbar, #footer, .mobile-menu {
 .service-card {
     position: relative;
     background: var(--bg-card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-lg);
     padding: 40px 32px;
@@ -907,9 +909,9 @@ main, #navbar, #footer, .mobile-menu {
 
 /* --- Detail Sections --- */
 .detail-section {
-    background: rgba(7, 8, 10, 0.88);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: rgba(7, 8, 10, 0.55);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     border-top: 1px solid var(--border-subtle);
 }
 
@@ -1061,9 +1063,9 @@ main, #navbar, #footer, .mobile-menu {
 
 /* --- Contact Section --- */
 .contact-section {
-    background: rgba(13, 15, 20, 0.9);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: rgba(13, 15, 20, 0.65);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     border-top: 1px solid var(--border-subtle);
 }
 
@@ -1104,6 +1106,8 @@ main, #navbar, #footer, .mobile-menu {
 /* --- Contact Form --- */
 .contact-form {
     background: var(--bg-card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-lg);
     padding: 40px;
